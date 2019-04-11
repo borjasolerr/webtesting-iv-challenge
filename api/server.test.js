@@ -17,6 +17,13 @@ describe('Express app', () => {
         .send({ name: 'Bobas' })
         .expect(201);
     });
+
+    it('will fail with 400 status code if name is missing in payload', () => {
+      return request(app)
+        .post('/')
+        .send({ user: 'Bobas' })
+        .expect(400);
+    });
   });
 
   describe('Delete a resource', () => {
